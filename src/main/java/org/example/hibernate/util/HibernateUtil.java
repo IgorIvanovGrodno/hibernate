@@ -1,5 +1,6 @@
 package org.example.hibernate.util;
 
+import org.example.hibernate.model.FightingStadion;
 import org.example.hibernate.model.Owner;
 import org.example.hibernate.model.Pokemon;
 import org.hibernate.Session;
@@ -22,8 +23,10 @@ public class HibernateUtil {
     private HibernateUtil() {
         try {
             Configuration configuration = new Configuration().configure();
+            configuration.setPhysicalNamingStrategy(new CustomNamingStrategy());
             configuration.addAnnotatedClass(Pokemon.class);
             configuration.addAnnotatedClass(Owner.class);
+            configuration.addAnnotatedClass(FightingStadion.class);
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties());
             sessionFactory=configuration.buildSessionFactory(builder.build());

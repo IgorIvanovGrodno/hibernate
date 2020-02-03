@@ -14,5 +14,6 @@
         <property name="hbm2ddl.auto">update</property>
         <mapping class="org.example.hibernate.model.Pokemon"/>
         <mapping class="org.example.hibernate.model.Owner"/>
+        <mapping class="org.example.hibernate.model.FightingStadion"/>
     </session-factory>
 </hibernate-configuration>

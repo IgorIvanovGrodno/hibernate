@@ -21,6 +21,7 @@ public class PokemonLoader {
        // deleteEntityDB(9L);
         System.out.println(findEntityDB(1L));
         System.out.println(findOwnerEntityDB(1L));
+        System.out.println(findStadionEntityDB(1L));
         session.close();
 
 
@@ -50,5 +51,14 @@ public class PokemonLoader {
         Owner owner = (Owner) session.get(Owner.class, id);
         tx.commit();
         return owner;
+    }
+
+    public static FightingStadion findStadionEntityDB(Long id){
+
+        Session session = util.getSession();
+        Transaction tx = session.beginTransaction();
+        FightingStadion fightingStadion = (FightingStadion) session.get(FightingStadion.class, id);
+        tx.commit();
+        return fightingStadion;
     }
 }

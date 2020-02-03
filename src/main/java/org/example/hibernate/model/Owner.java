@@ -11,8 +11,10 @@ public class Owner implements Serializable {
     private static final long serialVersionUID=1L;
     @Column
     private String name;
+
+    @Access(value=AccessType.FIELD)
     @Column
-    private int age;
+    int age;
     @Column
     private String status;
 

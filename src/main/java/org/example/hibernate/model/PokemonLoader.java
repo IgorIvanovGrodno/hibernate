@@ -13,13 +13,17 @@ public class PokemonLoader {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Pokemon pokemon=new Pokemon("har", "popa", 10);
+        Pokeball pokeball=new Pokeball("oval");
         util=HibernateUtil.getHibernateUtil();
         Session session = util.getSession();
-        session.save(pokemon);
+
+        //session.save(pokemon);
+        session.save(pokeball);
+        System.out.println("Generated############## "+pokemon.getId());
         Transaction tx=session.beginTransaction();
         tx.commit();
        // deleteEntityDB(9L);
-        System.out.println(findEntityDB(1L));
+        //System.out.println(findEntityDB(1L));
         System.out.println(findOwnerEntityDB(1L));
         System.out.println(findStadionEntityDB(1L));
         session.close();
